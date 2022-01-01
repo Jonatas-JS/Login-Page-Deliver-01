@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  --font-color-black-basic: #414042;
+  --font-color-blue-dark: #465685;
+  --color-blue: #00B4DB;
+  --color-baby-blue: #E2EEF5;
+}
+body {
+  color: var(--font-color-black-basic);
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-blue);
+  width: 100%;
+  height: 100%;
+}
+main {
+  display: grid;
+  grid-template-columns: 15vw 70vw 15vw;
+  grid-template-rows: 10vh 80vh 10vh;
+  justify-content: center;
+}
+main > img{
+  height: 100vh;
+  z-index: -1;
+  position: absolute;
+}
+
+.container {
+  grid-column: 2/3;
+  grid-row: 2/3;
+
+  background-color: whitesmoke;
+  border-radius: 1.5rem;
+}
+.container {
+  max-width: 80vw;
+  max-height: 80vw;
+  display: grid;
+  grid-template-columns: 1fr .2fr;
+}
+
+.login-layer {
+  grid-column: 1/2;
+  margin: 5rem;
+}
+
+.avatar-in-box {
+  grid-column: 2/3;
+}
+.container .avatar-in-box > img {
+  max-height: 80vh;
+}
