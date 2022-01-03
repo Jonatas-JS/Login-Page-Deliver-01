@@ -103,8 +103,8 @@ button {
 
 .register {
   display: flex;
-  gap: .3rem;
   align-items: center;
+  justify-content: center;
 }
 .register p {
   opacity: 0.4;
