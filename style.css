@@ -40,6 +40,9 @@ main > img{
 .container {
   display: grid;
   grid-template-columns: 1fr .2fr;
+  align-content: center;
+  justify-content: center;
+  align-items: space-between;
 }
 
 .login-layer {
@@ -55,6 +58,7 @@ main > img{
 }
 
 .login-layer input {
+  padding: 15px;
   border-radius: 1rem;
   border: #BCBEC0 solid 1px;
   width: 100%;
@@ -108,9 +112,32 @@ button {
 .register a {
   font-weight: 500;
 }
-.avatar-in-box {
+#avatar-in-box {
   grid-column: 2/3;
 }
-.avatar-in-box > img {
+#avatar-in-box > img {
   max-height: 80vh;
+}
+
+@media (max-width: 1220px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+  .login-layer {
+    margin-top: 6rem;
+    width: 40vw;
+  }
+    #avatar-in-box {
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    #avatar-in-box > img{
+      width: 1px;
+      height: 1px;
+    }
 }
