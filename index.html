@@ -20,13 +20,13 @@
         <h1>Login</h1>
 
         <h2>Email:</h2>
-        <input type="text">
+        <input type="text" id="email">
 
         <h2>Senha:</h2>
-        <input type="password">
+        <input type="password" id="senha">
         <a href="#">Esqueceu a senha?</a>
 
-        <a href="#"><button>Iniciar sessão</button></a>
+        <a href="#" onclick="entrar()"><button>Iniciar Sessão</button></a>
 
         <p>ou continue com</p>
         
@@ -77,7 +77,11 @@
 
           </div>
           <div class="deliveries">
+            <div class="top-sid">
             <h1>Suas Entregas</h1>
+            <a href="#" onclick="sair()"><h3 >X</h3></a>
+            </div>
+              
             <table id="data-table">
               <thead>
                 <th>Id</th>

@@ -120,23 +120,23 @@ button {
 }
 
 /* ===========> MODAL CONFIG ===========> */
-.modal-overlay {
+.modal-overlay.active {
   display: grid;
   grid-template-columns: 15vw 70vw 15vw;
   grid-template-rows: 10vh 80vh 10vh;
   justify-content: center;
 
   position: fixed;
-  /* visibility: hidden; */
+  visibility: visible;
   height: 100%;
   width: 100%;
   background: var(--color-blue);
-  /* opacity: 0; */
+  opacity: 1;
   z-index: 3;
 }
-.modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
+.modal-overlay {
+  visibility: hidden;
+  opacity: 0;
 }
 .modal {
   grid-column: 2/3;
@@ -189,7 +189,24 @@ button {
 }
 .deliveries {
   display: grid;
+  align-items:baseline;
   justify-items: center;
+}
+.top-sid {
+  display: flex;
+  justify-content: center;
+}
+.top-sid {
+  text-align: center;
+}
+a h3 {
+  position: absolute;
+  right: 17vw;
+  height: 2rem;
+  padding: .2rem .8rem;
+  color: whitesmoke;
+  background: var(--color-blue);
+  border-radius: .5rem;
 }
 
 
@@ -201,6 +218,8 @@ button {
     justify-content: center;
     align-items: center;
     justify-items: center;
+
+    font-size: 87%;
   }
   .login-layer {
     margin-top: 6rem;

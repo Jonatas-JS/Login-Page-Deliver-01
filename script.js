@@ -14,11 +14,16 @@ document.body.onresize = function() {
   }
 }
 
-function entregas() {
-  var countId = 1
-  if (countId <= 6) {
-    var tr = document.createElement('tr')
-    // tentar criar algo que preencha usando um Arry
-  }
-
+function entrar() {
+  var email = document.getElementById('email').value
+  var senha = document.getElementById('senha').value
+  
+  if (email != 'jonatas.silva@delivery.com' && senha != '123456') {
+    alert('[ERRO] verifique as informações e tente novamente')
+  } else {
+    document.querySelector('.modal-overlay').classList.add('active')
+}
+}
+function sair() {
+  document.querySelector('.modal-overlay.active').classList.remove('active')
 }
