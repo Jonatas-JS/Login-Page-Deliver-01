@@ -13,3 +13,12 @@ document.body.onresize = function() {
     }
   }
 }
+
+function entregas() {
+  var countId = 1
+  if (countId <= 6) {
+    var tr = document.createElement('tr')
+    // tentar criar algo que preencha usando um Arry
+  }
+
+}

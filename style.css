@@ -119,6 +119,80 @@ button {
   max-height: 80vh;
 }
 
+/* ===========> MODAL CONFIG ===========> */
+.modal-overlay {
+  display: grid;
+  grid-template-columns: 15vw 70vw 15vw;
+  grid-template-rows: 10vh 80vh 10vh;
+  justify-content: center;
+
+  position: fixed;
+  /* visibility: hidden; */
+  height: 100%;
+  width: 100%;
+  background: var(--color-blue);
+  /* opacity: 0; */
+  z-index: 3;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal {
+  grid-column: 2/3;
+  grid-row: 2/4;
+}
+
+.user-login {
+  display: grid;
+  grid-template-columns: 35% 65%;
+
+  background-color: whitesmoke;
+  padding: 3vh;
+  border-radius: 1.5rem;
+  height: 80vh;
+}
+.user-perfil {
+  grid-column: 1/2;
+  padding: 1.5rem;
+}
+.user-perfil > img {
+  max-height: 20vh;
+  clip-path: circle(50% at 50% 50%);
+  border: var(--color-blue) solid .3rem;
+  border-radius: 6rem;
+}
+.personal-information {
+  display: grid;
+  justify-items: left;
+  padding-top: .5rem;
+}
+.personal-information p {
+  margin: 0;
+}
+#nameUser {
+  font-weight: bold;
+  font-size: 12pt;
+}
+.score-image {
+  font-weight: bold;
+  padding-top: .6rem;
+}
+.score-image img {
+  max-width: 6rem;
+}
+.image-information img {
+  max-height: 35vh;
+}
+.deliveries {
+  grid-column: 2/3;
+}
+.deliveries {
+  display: grid;
+  justify-items: center;
+}
+
+
 @media (max-width: 1220px) {
   .container {
     grid-template-columns: 1fr;

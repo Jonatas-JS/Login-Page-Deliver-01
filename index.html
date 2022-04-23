@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body onload="entregas()">
   <main>
     <img src="./images/background_avatar_makata_vespa.svg" alt="avatar makata vespa background">
     <div class="container">
@@ -53,10 +53,106 @@
       <div id="avatar-in-box">
         <img src="./images/avatar_makata_vespa_v3.svg" alt="avatar makata vespa">
       </div>
+
+    </div>
+
+    <div class="modal-overlay">
+      <div class="modal">
+        <div class="user-login">
+          <div class="user-perfil">
+            <img src="https://avatars.githubusercontent.com/u/69220608?v=4" alt="foto perfil do usuário">
+            <div class="personal-information">
+              <p id="nameUser">Jônatas Fernandes da Silva</p>
+              <p id="ageUser">24 anos</p>
+              <p id="streetUser">Rua Lino Machado, Vila Betânia</p>
+
+              <div class="score-image">
+                <p>Sua pontuação</p>
+                <img src="/assets/score-5-icon.svg" alt="score do entregador">
+              </div>
+              <div class="image-information">
+              <img src="/images/avatar_makata_vespa_v1.png" alt="">
+              </div>
+            </div>
+
+          </div>
+          <div class="deliveries">
+            <h1>Suas Entregas</h1>
+            <table id="data-table">
+              <thead>
+                <th>Id</th>
+                <th>Cliente</th>
+                <th>Endereço</th>
+                <th>valor</th>
+                <th>Troco</th>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Juliana Marques</td>
+                  <td>Rua Lino Machado,n 32, Vila Betânia</td>
+                  <td>R$ 22,50</td>
+                  <td>17,50</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Juliana Marques</td>
+                  <td>Rua Lino Machado,n 32, Vila Betânia</td>
+                  <td>R$ 22,50</td>
+                  <td>17,50</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Juliana Marques</td>
+                  <td>Rua Lino Machado,n 32, Vila Betânia</td>
+                  <td>R$ 22,50</td>
+                  <td>17,50</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Juliana Marques</td>
+                  <td>Rua Lino Machado,n 32, Vila Betânia</td>
+                  <td>R$ 22,50</td>
+                  <td>17,50</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Juliana Marques</td>
+                  <td>Rua Lino Machado,n 32, Vila Betânia</td>
+                  <td>R$ 22,50</td>
+                  <td>17,50</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Juliana Marques</td>
+                  <td>Rua Lino Machado,n 32, Vila Betânia</td>
+                  <td>R$ 22,50</td>
+                  <td>17,50</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Juliana Marques</td>
+                  <td>Rua Lino Machado,n 32, Vila Betânia</td>
+                  <td>R$ 22,50</td>
+                  <td>17,50</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Juliana Marques</td>
+                  <td>Rua Lino Machado,n 32, Vila Betânia</td>
+                  <td>R$ 22,50</td>
+                  <td>17,50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
-  <!-- <script src="./script.js"></script> -->
+  <script src="./script.js"></script>
 
 </body>
 </html>
