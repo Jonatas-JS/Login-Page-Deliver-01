@@ -182,7 +182,8 @@ button {
   max-width: 6rem;
 }
 .image-information img {
-  max-height: 35vh;
+  margin-top: 1.7rem;
+  max-height: 27vh;
 }
 .deliveries {
   grid-column: 2/3;

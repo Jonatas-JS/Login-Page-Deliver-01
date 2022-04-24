@@ -22,6 +22,20 @@ function entrar() {
     alert('[ERRO] verifique as informações e tente novamente')
   } else {
     document.querySelector('.modal-overlay').classList.add('active')
+
+    function entregas() {
+      var clientId = ''
+      var clientName = ['Juliana Marques', 'Isaac Fernandes', 'Gabriel Oliveira', 'Israel Barros', 'Ana Vitória', 'Débora Talita']
+      var clientAddress = ['Rua Lino Machado', '', '', '', '', '', '']
+      var clientCash = ['', '', '', '', '', '', '']
+      var clientChange = ['', '', '', '', '', '', '']
+      
+      //Adicionar as TR no TBODY
+      if (clientId <= clientName.length) {
+        document.querySelector('entregas')
+      }
+
+    }
 }
 }
 function sair() {
