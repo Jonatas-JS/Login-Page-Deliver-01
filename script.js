@@ -9,30 +9,68 @@
   } */
 
 function entrar() {
-  var email = document.getElementById('email').value
+  var email = document.getElementById('email').value.toLowerCase()
   var senha = document.getElementById('senha').value
   
-  if (email != 'jonatas.silva@delivery.com' && senha != '123456') { //Validação do e-mail e senha
+  if (email != 'jonatas.silva@delivery.com' || senha != '123456') { //Validação do e-mail e senha
     alert('[ERRO] verifique as informações e tente novamente')
   } else {
     document.querySelector('.modal-overlay').classList.add('active') //peguei a class="modal-overlay" e adicionei a ela a class="active"
 
     var tbody = document.getElementById('entregas')
     var clientId = 0
-
-      while (clientId <= 6) { //enquanto o ID do cliente for menor que 6(forçadamente a quantidade de pedidos existentes) então...
-        var clientName = ['Juliana Marques', 'Isaac Fernandes', 'Gabriel Oliveira', 'Israel Barros', 'Ana Vitória', 'Débora Talita', 'Ronier Batista']
-        var clientAddress = ['Rua Lino Machado', 'Av. Geraldo Bizarria', 'Rua Miguel Felipe', 'Rua Eduardo Campos', 'Av. 25 de Março', 'Rua Miguel Firmino', 'Rua Terezinha Franco de Sousa']
-        var clientCash = ['R$ 22,50', 'R$ 19,00', 'R$ 35,00', 'R$ 22,50', 'R$ 12,00', 'R$ 25,80', 'R$ 15,00']
-        var clientChange = ['R$ 2,50', 'R$ 1,00', 'R$ 0,00', 'R$ 7,50', 'R$ 3,00', 'Cartão', 'R$ 5,00']
-        
+    var clients = [
+      {
+        name: 'Juliana Marques',
+        address: 'Rua Lino Machado',
+        cash: 'R$ 22,50',
+        change: 'R$ 2,50'
+      },
+      {
+        name: 'Isaac Fernandes',
+        address: 'Av. Geraldo Bizarria',
+        cash: 'R$ 19,00',
+        change: 'R$ 1,00'
+      },
+      {
+        name: 'Gabriel Oliveira',
+        address: 'Rua Eduardo Campos',
+        cash: 'R$ 35,00',
+        change: 'R$ 0,00'
+      },
+      {
+        name: 'Israel Barros',
+        address: 'Av. 25 de Março',
+        cash: 'R$ 22,50',
+        change: 'R$ 7,50'
+      },
+      {
+        name: 'Ana Vitória',
+        address: 'Rua Miguel Firmino',
+        cash: 'R$ 12,00',
+        change: 'R$ 3,00'
+      },
+      {
+        name: 'Débora Talita',
+        address: 'Rua Miguel Felipe',
+        cash: 'R$ 25,80',
+        change: 'Cartão'
+      },
+      {
+        name: 'Ronier Batista',
+        address: 'Rua Terezinha Franco de Sousa',
+        cash: 'R$ 15,00',
+        change: 'R$ 5,00'
+      }
+    ]
+      while (clientId <= clients.length) { //enquanto o ID do cliente for menor que 6(forçadamente a quantidade de pedidos existentes) então...        
         tbody.innerHTML += `
           <tr>
-            <td>${clientId}</td>
-            <td>${clientName[clientId]}</td>
-            <td>${clientAddress[clientId]}</td>
-            <td>${clientCash[clientId]}</td>
-            <td>${clientChange[clientId]}</td>
+            <td>${clientId+1}</td>
+            <td>${clients[clientId].name}</td>
+            <td>${clients[clientId].address}</td>
+            <td>${clients[clientId].cash}</td>
+            <td>${clients[clientId].change}</td>
           </tr>`
           clientId++
     }
