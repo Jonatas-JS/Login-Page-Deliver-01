@@ -9,11 +9,14 @@
   } */
 
 function entrar() {
-  var email = document.getElementById('email').value.toLowerCase()
+  var email = document.getElementById('email').value
   var senha = document.getElementById('senha').value
+  var eMails = ['jonatas.silva@delivery.com', 'selton.silva@delivery.com', 'jefferson.mike@delivery.com', 'eudalio.silva@delivery.com']
   
-  if (email != 'jonatas.silva@delivery.com' || senha != '123456') { //Validação do e-mail e senha
-    alert('[ERRO] verifique as informações e tente novamente')
+  if (eMails.includes(email)) { //Validação do e-mail
+    alert('[ERRO] e-mail inexistente')
+  } else if(senha != '123456') {
+    alert('[ERRO] senha inválida')
   } else {
     document.querySelector('.modal-overlay').classList.add('active') //peguei a class="modal-overlay" e adicionei a ela a class="active"
 
