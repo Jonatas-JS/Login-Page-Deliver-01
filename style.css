@@ -170,6 +170,7 @@ button {
 }
 .personal-information p {
   margin: 0;
+  text-align: left;
 }
 #nameUser {
   font-weight: bold;

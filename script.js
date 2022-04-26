@@ -10,12 +10,40 @@
 
 function entrar() {
   var email = document.getElementById('email').value.toLowerCase()
-  var senha = document.getElementById('senha').value
+  var password = document.getElementById('senha').value
+
+  var emailCad = ['jonatas.silva@delivery.com', 'selton.silva@delivery.com'] 
+  var senhaCad = ['123456', '654321']
+
+  var senhaPosition = senhaCad.indexOf(password)
   
-  if (email != 'jonatas.silva@delivery.com' || senha != '123456') { //Validação do e-mail e senha
-    alert('[ERRO] verifique as informações e tente novamente')
-  } else {
+  if (emailCad.includes(email) && password == senhaCad[emailCad.indexOf(email)]) {
+  //vai olhar dentro(INCLUDES()) da Array se tem o e-mail digitado.
+  //Se a senha == vai no Array que tem as senhas, pega a posição(INDEXOF()) do e-mail digitado dentro do Array emailCad
+  //por fim, vai comparar se o a senha digitada está vinculada a posição na Array do e-mail digitado.
+
     document.querySelector('.modal-overlay').classList.add('active') //peguei a class="modal-overlay" e adicionei a ela a class="active"
+    // teste mudar nome
+    // var nameUser = document.getElementById('nameUser').innerHTML = `${email}`
+    // var ageUser = document.getElementById('ageUser').innerHTML = `${password}`
+    var userCad = [
+      {
+        img: 'https://avatars.githubusercontent.com/u/69220608?v=4',
+        nome: 'Jônatas Fernandes',
+        idade: '24 anos',
+        endereco: 'Rua Lino Machado, 32, Vila Betânia'
+      },
+      {
+        img: 'https://avatars.githubusercontent.com/u/44243944?v=4',
+        nome: 'Selton Kaway',
+        idade: '26 anos',
+        endereco: 'Rua José Campos Torquato, 09, Vila Betânia'
+      }
+    ]
+    document.getElementById('imagePerfil').innerHTML = `<img src="${userCad[emailCad.indexOf(email).img]}"`
+    document.getElementById('nameUser').innerHTML = `${userCad[emailCad.indexOf(email)].nome}`
+    document.getElementById('ageUser').innerHTML = `${userCad[emailCad.indexOf(email)].idade}`
+    document.getElementById('streetUser').innerHTML = `${userCad[emailCad.indexOf(email)].endereco}`
 
     var tbody = document.getElementById('entregas')
     var clientId = 0
@@ -74,8 +102,17 @@ function entrar() {
           </tr>`
           clientId++
     }
+  } else if (emailCad.includes(email) == false) {
+    //como o INCLUDES só retorna true ou false, se a resposta for == FALSE então...
+    alert('[ERRO] e-mail inexistente, tente novamente.')
+  } else {
+    alert('[ERRO] senha incorreta, tente novamente.')
   }
 }
 function sair() {
+  var reloadPage = document.querySelector('.modal-overlay.active')
+  reloadPage.addEventListener('click', function() { //quando apertar o X vai acionar a ação CLICK(que ele está "escutando" e abrir uma função sem nome).
+    location.reload(); //localmente fassa um RELOAD da página.
+});
   document.querySelector('.modal-overlay.active').classList.remove('active')
 }
