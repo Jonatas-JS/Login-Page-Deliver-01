@@ -157,7 +157,7 @@ button {
   grid-column: 1/2;
   padding: 1.5rem;
 }
-.user-perfil > img {
+#imagePerfil > img {
   max-height: 20vh;
   clip-path: circle(50% at 50% 50%);
   border: var(--color-blue) solid .3rem;

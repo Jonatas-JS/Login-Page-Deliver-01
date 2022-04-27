@@ -12,8 +12,8 @@ function entrar() {
   var email = document.getElementById('email').value.toLowerCase()
   var password = document.getElementById('senha').value
 
-  var emailCad = ['jonatas.silva@delivery.com', 'selton.silva@delivery.com'] 
-  var senhaCad = ['123456', '654321']
+  var emailCad = ['jonatas.silva@delivery.com', 'selton.silva@delivery.com', 'juliana.marques@delivery.com']
+  var senhaCad = ['123456', '654321', '92513987']
 
   var senhaPosition = senhaCad.indexOf(password)
   
@@ -23,28 +23,37 @@ function entrar() {
   //por fim, vai comparar se o a senha digitada está vinculada a posição na Array do e-mail digitado.
 
     document.querySelector('.modal-overlay').classList.add('active') //peguei a class="modal-overlay" e adicionei a ela a class="active"
-    // teste mudar nome
-    // var nameUser = document.getElementById('nameUser').innerHTML = `${email}`
-    // var ageUser = document.getElementById('ageUser').innerHTML = `${password}`
-    var userCad = [
+    var userCad = [//cadastro com as informações dos usuários em objetos.
       {
         img: 'https://avatars.githubusercontent.com/u/69220608?v=4',
         nome: 'Jônatas Fernandes',
-        idade: '24 anos',
+        idade: '23 anos',
         endereco: 'Rua Lino Machado, 32, Vila Betânia'
       },
       {
         img: 'https://avatars.githubusercontent.com/u/44243944?v=4',
         nome: 'Selton Kaway',
-        idade: '26 anos',
+        idade: '25 anos',
         endereco: 'Rua José Campos Torquato, 09, Vila Betânia'
+      },
+      {
+        img: 'https://avatars.githubusercontent.com/u/94191095?v=4',
+        nome: 'Juliana Marques',
+        idade: '26 anos',
+        endereco: 'Rua Terezinha Franco de Sousa, 68, Maravilha'
       }
     ]
-    document.getElementById('imagePerfil').innerHTML = `<img src="${userCad[emailCad.indexOf(email).img]}"`
+    //Criando as informações de perfil com JS
+    var imagePerfil = document.getElementById('imagePerfil') //vai pegar o HTML inteiro
+    var img = document.createElement('img') //vai criar um elemento do tipo IMG
+    img.setAttribute('src', `${userCad[emailCad.indexOf(email)].img}`) //vai dar atributo SRC ao elemento IMG criado.
+    imagePerfil.appendChild(img) //criar um filho, esse filho vai ser tudo que foi criado anteriormente no IMG.
+
     document.getElementById('nameUser').innerHTML = `${userCad[emailCad.indexOf(email)].nome}`
     document.getElementById('ageUser').innerHTML = `${userCad[emailCad.indexOf(email)].idade}`
     document.getElementById('streetUser').innerHTML = `${userCad[emailCad.indexOf(email)].endereco}`
 
+    //Criando as entregas do usuário
     var tbody = document.getElementById('entregas')
     var clientId = 0
     var clients = [
@@ -91,7 +100,8 @@ function entrar() {
         change: 'R$ 5,00'
       }
     ]
-      while (clientId <= clients.length) { //enquanto o ID do cliente for menor que 6(forçadamente a quantidade de pedidos existentes) então...        
+      while (clientId <= clients.length) {
+      //enquanto o ID do cliente for menor que a quantidade de obsjetos no Array faça...      
         tbody.innerHTML += `
           <tr>
             <td>${clientId+1}</td>
@@ -111,8 +121,12 @@ function entrar() {
 }
 function sair() {
   var reloadPage = document.querySelector('.modal-overlay.active')
-  reloadPage.addEventListener('click', function() { //quando apertar o X vai acionar a ação CLICK(que ele está "escutando" e abrir uma função sem nome).
+  reloadPage.addEventListener('click', function() {
+  // quando apertar o X vai acionar a ação CLICK(que ele está "escutando" e abrir uma função sem nome).
     location.reload(); //localmente fassa um RELOAD da página.
-});
+})
+  //devido o RELOAD acima, essa função que remove a class .ACTIVE já náo é mais necessária, mas tbm seria uma opção viável.
+  //mas seria necessário o "esvaziamento" de algumas variáveis como imagePerfil e img,
+  // e elas teriam que estar do lado de fora da function entrar() para serem acessadas aqui.
   document.querySelector('.modal-overlay.active').classList.remove('active')
 }
