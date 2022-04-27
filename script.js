@@ -113,10 +113,10 @@ function entrar() {
           clientId++
     }
   } else if (emailCad.includes(email) == false) {
-    //como o INCLUDES só retorna true ou false, se a resposta for == FALSE então...
-    alert('[ERRO] e-mail inexistente, tente novamente.')
+    //como o INCLUDES só retorna TRUE ou FALSE, se a resposta for == FALSE então...
+    document.getElementById('emailLogin').innerHTML = 'Email: <font color ="#A93159"><strong>e-mail inexistente.</strong></font>'
   } else {
-    alert('[ERRO] senha incorreta, tente novamente.')
+    document.getElementById('passwordLogin').innerHTML = 'Senha: <font color="#A93159"><strong>senha incorreta.</strong></font>'
   }
 }
 function sair() {
