@@ -120,7 +120,7 @@ button {
   max-height: 80vh;
 }
 
-/* ===========> MODAL CONFIG ===========> */
+/* ===========> USER PLATAFORM CONFIG ===========> */
 .user-platform.active {
   display: grid;
   grid-template-columns: 15vw 70vw 15vw;
@@ -158,7 +158,7 @@ button {
   padding: 1.5rem;
 }
 #imagePerfil > img {
-  max-height: 20vh;
+  max-height: 15vh;
   clip-path: circle(50% at 50% 50%);
   border: var(--color-blue) solid .3rem;
   border-radius: 6rem;
@@ -240,6 +240,24 @@ a h3 {
   background: whitesmoke;
 }
 
+/* ===========> MODAL CONFIG ===========> */
+.modal-overlay {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+
+  height: 100%;
+  width: 100%;
+  background: rgb(0, 0, 0, .7);
+  backdrop-filter: blur(1px);
+}
+.modal {
+  padding: 15rem 10rem;
+  background: whitesmoke;
+  border-radius: 1rem;
+}
+
 @media (max-width: 1220px) {
   .container {
     grid-template-columns: 1fr;
@@ -278,4 +296,14 @@ a h3 {
     width: 1px;
     visibility: hidden;
   }
+  .user-platform.active {
+    display: grid;
+    grid-template-columns: 5vw 90vw 5vw;
+    /* grid-template-rows: 10vh 80vh 10vh; */
+    /* justify-content: center; */}
+    #imagePerfil > img {
+      max-height: 10vh;
+      /* border: var(--color-blue) solid .3rem; */
+      /* border-radius: 6rem; */
+    }
 }

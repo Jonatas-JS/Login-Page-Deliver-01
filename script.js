@@ -7,10 +7,18 @@
     // var imgAvatarVespa = document.getElementById('avatar-in-box');
       // imgAvatarVespa.parentNode.removeChild(imgAvatarVespa);
   } */
-
+  document.addEventListener("keypress", function(e) {
+    if(e.key === 'Enter') {
+    
+        var btn = document.querySelector('#submit')
+      
+      btn.click()
+    
+    }
+  })
 function entrar() {
   var email = document.getElementById('email').value.toLowerCase()
-  var password = document.getElementById('senha').value
+  var password = document.getElementById('password').value
 
   var emailCad = ['jonatas.silva@delivery.com', 'selton.silva@delivery.com', 'juliana.marques@delivery.com']
   var senhaCad = ['123456', '654321', '92513987']
@@ -113,11 +121,18 @@ function entrar() {
           </tr>`
           clientId++
     }
+
+    var infoComanda = document.getElementById('infoComanda')
+    infoComanda.innerHTML = '<p>jonatas</p>'
+
   } else if (emailCad.includes(email) == false) {
     //como o INCLUDES só retorna TRUE ou FALSE, se a resposta for == FALSE então...
     document.getElementById('emailLogin').innerHTML = 'Email: <font color ="#A93159"><strong>e-mail inexistente.</strong></font>'
+    document.getElementById('passwordLogin').innerHTML = 'Senha:'
+    document.getElementById('password').value = ''
   } else {
     document.getElementById('passwordLogin').innerHTML = 'Senha: <font color="#A93159"><strong>senha incorreta.</strong></font>'
+    document.getElementById('password').value = ''
   }
 }
 function sair() {
