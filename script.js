@@ -22,7 +22,7 @@ function entrar() {
   //Se a senha == vai no Array que tem as senhas, pega a posição(INDEXOF()) do e-mail digitado dentro do Array emailCad
   //por fim, vai comparar se o a senha digitada está vinculada a posição na Array do e-mail digitado.
 
-    document.querySelector('.modal-overlay').classList.add('active') //peguei a class="modal-overlay" e adicionei a ela a class="active"
+    document.querySelector('.user-platform').classList.add('active') //peguei a class="modal-overlay" e adicionei a ela a class="active"
     var userCad = [//cadastro com as informações dos usuários em objetos.
       {
         img: 'https://avatars.githubusercontent.com/u/69220608?v=4',
@@ -61,7 +61,8 @@ function entrar() {
         name: 'Juliana Marques',
         address: 'Rua Lino Machado',
         cash: 'R$ 22,50',
-        change: 'R$ 2,50'
+        change: 'R$ 2,50',
+        order: ''
       },
       {
         name: 'Isaac Fernandes',
@@ -120,7 +121,7 @@ function entrar() {
   }
 }
 function sair() {
-  var reloadPage = document.querySelector('.modal-overlay.active')
+  var reloadPage = document.querySelector('.user-platform.active')
   reloadPage.addEventListener('click', function() {
   // quando apertar o X vai acionar a ação CLICK(que ele está "escutando" e abrir uma função sem nome).
     location.reload(); //localmente fassa um RELOAD da página.
@@ -128,5 +129,5 @@ function sair() {
   //devido o RELOAD acima, essa função que remove a class .ACTIVE já náo é mais necessária, mas tbm seria uma opção viável.
   //mas seria necessário o "esvaziamento" de algumas variáveis como imagePerfil e img,
   // e elas teriam que estar do lado de fora da function entrar() para serem acessadas aqui.
-  document.querySelector('.modal-overlay.active').classList.remove('active')
+  document.querySelector('.user-platform.active').classList.remove('active')
 }

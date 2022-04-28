@@ -121,7 +121,7 @@ button {
 }
 
 /* ===========> MODAL CONFIG ===========> */
-.modal-overlay.active {
+.user-platform.active {
   display: grid;
   grid-template-columns: 15vw 70vw 15vw;
   grid-template-rows: 10vh 80vh 10vh;
@@ -135,11 +135,11 @@ button {
   opacity: 1;
   z-index: 3;
 }
-.modal-overlay {
+.user-platform {
   visibility: hidden;
   opacity: 0;
 }
-.modal {
+.user-fild {
   grid-column: 2/3;
   grid-row: 2/4;
 }
@@ -192,7 +192,8 @@ button {
 }
 .deliveries {
   display: grid;
-  align-items:baseline;
+  grid-template-rows: 1fr 10fr;
+  align-items: baseline;
   justify-items: center;
 }
 .top-sid {
@@ -211,7 +212,33 @@ a h3 {
   background: var(--color-blue);
   border-radius: .5rem;
 }
-
+#data-table {
+  border-spacing: 0 0.25rem; /*espaço horizontal entre as linhas | espaço vertical entre as linhas*/
+}
+#data-table th {
+  color: whitesmoke;
+  background: var(--color-blue);
+}
+#data-table th:first-child,
+#data-table td:first-child {
+  text-align: center;
+  padding: 0 .3rem;
+  border-radius: .3rem 0 0 .3rem;
+}
+#data-table th:last-child,
+#data-table td:last-child {
+  padding: 0 .3rem;
+  border-radius: 0 .3rem .3rem 0;
+}
+#data-table td {
+  padding: 0 .3rem;
+}
+#data-table tbody tr {
+  background: #CDE3E8;
+}
+#data-table tbody tr:hover {
+  background: whitesmoke;
+}
 
 @media (max-width: 1220px) {
   .container {
