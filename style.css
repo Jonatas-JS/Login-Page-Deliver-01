@@ -253,7 +253,7 @@ a h3 {
   backdrop-filter: blur(1px);
 }
 .modal {
-  padding: 15rem 10rem;
+  padding: 1rem 5rem;
   background: whitesmoke;
   border-radius: 1rem;
 }

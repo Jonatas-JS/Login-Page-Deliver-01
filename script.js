@@ -7,13 +7,12 @@
     // var imgAvatarVespa = document.getElementById('avatar-in-box');
       // imgAvatarVespa.parentNode.removeChild(imgAvatarVespa);
   } */
+
+  //Adicionar um evento de "Keypress", pressionar botão
   document.addEventListener("keypress", function(e) {
-    if(e.key === 'Enter') {
-    
-        var btn = document.querySelector('#submit')
-      
-      btn.click()
-    
+    if (e.key === 'Enter') {
+      var btn = document.querySelector('#submit')
+      btn.click() //pegua o ID(o botão que tem o onclick) e dá a caracteristica de click.
     }
   })
 function entrar() {
@@ -56,7 +55,7 @@ function entrar() {
     var img = document.createElement('img') //vai criar um elemento do tipo IMG
     img.setAttribute('src', `${userCad[emailCad.indexOf(email)].img}`) //vai dar atributo SRC ao elemento IMG criado.
     imagePerfil.appendChild(img) //criar um filho, esse filho vai ser tudo que foi criado anteriormente no IMG.
-
+    
     document.getElementById('nameUser').innerHTML = `${userCad[emailCad.indexOf(email)].nome}`
     document.getElementById('ageUser').innerHTML = `${userCad[emailCad.indexOf(email)].idade}`
     document.getElementById('streetUser').innerHTML = `${userCad[emailCad.indexOf(email)].endereco}`
@@ -70,7 +69,6 @@ function entrar() {
         address: 'Rua Lino Machado',
         cash: 'R$ 22,50',
         change: 'R$ 2,50',
-        order: ''
       },
       {
         name: 'Isaac Fernandes',
@@ -120,10 +118,12 @@ function entrar() {
             <td>${clients[clientId].change}</td>
           </tr>`
           clientId++
-    }
 
-    var infoComanda = document.getElementById('infoComanda')
-    infoComanda.innerHTML = '<p>jonatas</p>'
+          document.getElementById('nComanda').innerHTML = `Comanda #${clientId}`
+          document.getElementById('infoComanda').innerHTML = `<tr><td>${clients[clientId].name}</td></tr>`
+    } 
+      // var infoComanda = document.querySelector('#infoComanda')
+      // console.log(infoComanda)
 
   } else if (emailCad.includes(email) == false) {
     //como o INCLUDES só retorna TRUE ou FALSE, se a resposta for == FALSE então...
