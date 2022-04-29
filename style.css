@@ -250,13 +250,48 @@ a h3 {
   height: 100%;
   width: 100%;
   background: rgb(0, 0, 0, .7);
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px); /*efeito borrado*/
 }
 .modal {
-  padding: 1rem 5rem;
+  display: grid;
+  justify-items: center;
+  max-width: 50vh;
+  padding: 1rem 2rem;
   background: whitesmoke;
   border-radius: 1rem;
 }
+.modal table {
+  margin-top: 1rem;
+  border-spacing: .5rem .2rem; /*espaço horizontal/vertical*/
+}
+.modal table th {
+  text-align: right;
+}
+#pedido-entregue {
+  border-style: none;
+  border-radius: 1rem;
+  height: 2rem;
+  width: 10rem;
+  margin: .7rem 0;
+  color: whitesmoke;
+  background: #4fb170;
+  font-weight: bold;
+}
+#pedido-entregue:hover {
+  background: #65c585;
+}
+/* Outr forma de deixar VISUALMENTE os th na vertical usando a estrutura HTML normal.
+#comanda thead {
+  float: left;   
+}
+
+#comanda thead th {
+  display: block;   
+}
+
+#comanda tbody {
+  float: right;   
+}  */
 
 @media (max-width: 1220px) {
   .container {

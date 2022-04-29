@@ -67,44 +67,72 @@ function entrar() {
       {
         name: 'Juliana Marques',
         address: 'Rua Lino Machado',
-        cash: 'R$ 22,50',
-        change: 'R$ 2,50',
+        cash: 'R$ 17,00',
+        change: 'R$ 3,00',
+        order: 'Cheese Burger',
+        dateOrder: '29/04/2022',
+        hourOrder: '18:30',
+        comments: 'Buzinar para que eu desça.'
       },
       {
         name: 'Isaac Fernandes',
         address: 'Av. Geraldo Bizarria',
-        cash: 'R$ 19,00',
-        change: 'R$ 1,00'
+        cash: 'R$ 17,50',
+        change: 'R$ 2,50',
+        order: 'Batata rustica, creme de cheddar e bacon',
+        dateOrder: '29/04/2022',
+        hourOrder: '18:32',
+        comments: ''
       },
       {
-        name: 'Gabriel Oliveira',
+        name: 'Gabriel Monteiro',
         address: 'Rua Eduardo Campos',
-        cash: 'R$ 35,00',
-        change: 'R$ 0,00'
+        cash: 'R$ 22,00',
+        change: 'R$ 0,00',
+        order: 'Calabresa acebolada',
+        dateOrder: '29/04/2022',
+        hourOrder: '18:45',
+        comments: ''
       },
       {
         name: 'Israel Barros',
         address: 'Av. 25 de Março',
-        cash: 'R$ 22,50',
-        change: 'R$ 7,50'
+        cash: 'R$ 21,00',
+        change: 'R$ 19,00',
+        order: 'Espeto de boi',
+        dateOrder: '29/04/2022',
+        hourOrder: '18:46',
+        comments: ''
       },
       {
         name: 'Ana Vitória',
         address: 'Rua Miguel Firmino',
-        cash: 'R$ 12,00',
-        change: 'R$ 3,00'
+        cash: 'R$ 11,00',
+        change: 'R$ 9,00',
+        order: 'Porção de macaxeira',
+        dateOrder: '29/04/2022',
+        hourOrder: '18:50',
+        comments: ''
       },
       {
         name: 'Débora Talita',
         address: 'Rua Miguel Felipe',
-        cash: 'R$ 25,80',
-        change: 'Cartão'
+        cash: 'R$ 22,00',
+        change: 'Cartão',
+        order: 'Queijo coalho assado',
+        dateOrder: '29/04/2022',
+        hourOrder: '19:01',
+        comments: 'Avisar quando estiver vindo, meu filho está dormindo.'
       },
       {
         name: 'Ronier Batista',
         address: 'Rua Terezinha Franco de Sousa',
-        cash: 'R$ 15,00',
-        change: 'R$ 5,00'
+        cash: 'R$ 33,00',
+        change: 'R$ 7,00',
+        order: 'Filé com fritas 1 Pessoa',
+        dateOrder: '29/04/2022',
+        hourOrder: '19:03',
+        comments: ''
       }
     ]
       while (clientId <= clients.length) {
@@ -120,10 +148,48 @@ function entrar() {
           clientId++
 
           document.getElementById('nComanda').innerHTML = `Comanda #${clientId}`
-          document.getElementById('infoComanda').innerHTML = `<tr><td>${clients[clientId].name}</td></tr>`
+    //aqui vai outra estrutura de como mantar uma table com th vertical
+    //no HTML só vai precisar do <table> e <tboty> dentro cada <tr> vai um <th> e <td>
+          document.getElementById('infoComanda').innerHTML = `
+          <tr>
+          <th scope="row">Id</th>
+          <td>${clientId}</td>
+          </tr>
+          <tr>
+          <th scope="row">Nome</th>
+          <td>${clients[0].name}</td>
+          </tr>
+          <tr>
+          <th scope="row">Endereço</th>
+          <td>${clients[0].address}</td>
+          </tr>
+          <tr>
+          <th scope="row">Valor</th>
+          <td>${clients[0].cash}</td>
+          </tr>
+          <tr>
+          <th scope="row">Troco</th>
+          <td>${clients[0].chang}</td>
+          </tr>
+          <tr>
+          <th scope="row">Pedido</th>
+          <td>${clients[0].order}</td>
+          </tr>
+          <tr>
+          <th scope="row">Data</th>
+          <td>${clients[0].dateOrder}</td>
+          </tr>
+          <tr>
+          <th scope="row">Hora</th>
+          <td>${clients[0].hourOrder}hr</td>
+          </tr>
+          <tr>
+          <th scope="row">Obs.:</th>
+          <td>${clients[0].comments}</td>
+          </tr>`
     } 
-      // var infoComanda = document.querySelector('#infoComanda')
-      // console.log(infoComanda)
+    // var infoComanda = document.querySelector('#infoComanda')
+    // console.log(infoComanda)
 
   } else if (emailCad.includes(email) == false) {
     //como o INCLUDES só retorna TRUE ou FALSE, se a resposta for == FALSE então...
