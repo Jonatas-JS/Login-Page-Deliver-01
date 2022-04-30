@@ -43,7 +43,6 @@ main > img{
   align-content: center;
   justify-content: center;
   justify-items: center;
-  /* align-items: space-between; */
 }
 
 .login-layer {
@@ -120,7 +119,7 @@ button {
   max-height: 80vh;
 }
 
-/* ===========> USER PLATAFORM CONFIG ===========> */
+/* ===========> PÁGINA DE PERFIL/ENTREGAS CONFIG ===========> */
 .user-platform.active {
   display: grid;
   grid-template-columns: 15vw 70vw 15vw;
@@ -133,12 +132,13 @@ button {
 
   height: 100%;
   width: 100%;
-  background: var(--color-blue);
-  z-index: 3;
+  /* z-index: 1; */
 }
 .user-platform {
   visibility: hidden;
   opacity: 0;
+  height: 1px;
+  width: 1px;
 }
 .user-fild {
   grid-column: 2/3;
@@ -147,12 +147,12 @@ button {
 
 .user-login {
   display: grid;
-  grid-template-columns: 35% 65%;
+  /* grid-template-columns: 35% 65%; */
 
   background-color: whitesmoke;
   padding: 3vh;
   border-radius: 1.5rem;
-  height: 80vh;
+  max-height: 80vh;
 }
 .user-perfil {
   grid-column: 1/2;
@@ -193,26 +193,28 @@ button {
 }
 .deliveries {
   display: grid;
-  grid-template-rows: 1fr 10fr;
+  grid-template-rows: .1fr .1fr 1fr;
   align-items: baseline;
   justify-items: center;
 }
-.top-sid {
+.user-login a {
+  grid-column: 2/3;
+  justify-self: right;
+  padding: .2rem .5rem;
+  color: whitesmoke;
+  background: var(--color-blue);
+  border-radius: .5rem;
+}
+.deliveries h1 {
+  font-size: 16pt;
+}
+/* .top-sid {
   display: flex;
   justify-content: center;
 }
 .top-sid {
   text-align: center;
-}
-.top-sid a h3 {
-  position: absolute;
-  right: 17vw;
-  height: 2rem;
-  padding: .2rem .8rem;
-  color: whitesmoke;
-  background: var(--color-blue);
-  border-radius: .5rem;
-}
+} */
 #data-table {
   border-spacing: 0 0.25rem; /*espaço horizontal entre as linhas | espaço vertical entre as linhas*/
 }
@@ -233,6 +235,7 @@ button {
 }
 #data-table td {
   padding: 0 .3rem;
+  cursor: pointer; /*cursor como link*/
 }
 #data-table tbody tr {
   background: #CDE3E8;
@@ -245,6 +248,8 @@ button {
 .modal-overlay {
   visibility: hidden;
   opacity: 0;
+  height: 1px;
+  width: 1px;
 }
 .modal-overlay.active {
   visibility: visible;
@@ -261,15 +266,15 @@ button {
 }
 .modal {
   display: grid;
+  align-items: center;
   justify-items: center;
   max-width: 50vh;
   padding: 1rem 2rem;
   background: whitesmoke;
   border-radius: 1rem;
 }
-.modal a h3 {
-  position: absolute;
-  right: 39vw;
+.modal a {
+  justify-self: right;
   padding: .2rem .5rem;
   color: whitesmoke;
   background: var(--color-blue);
@@ -295,7 +300,7 @@ button {
 #pedido-entregue:hover {
   background: #65c585;
 }
-/* Outr forma de deixar VISUALMENTE os th na vertical usando a estrutura HTML normal.
+/* Outra forma de deixar VISUALMENTE os th na vertical usando a estrutura HTML normal.
 #comanda thead {
   float: left;   
 }
@@ -308,10 +313,10 @@ button {
   float: right;   
 }  */
 
+/* ===========> TABLE CONFIG ===========> */
 @media (max-width: 1220px) {
   .container {
     grid-template-columns: 1fr;
-    /* grid-template-rows: 1fr 1fr; */
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -322,17 +327,19 @@ button {
   .login-layer {
     width: 50vw;
   }
-    #avatar-in-box {
+  #avatar-in-box {
       grid-column: 1/2;
       grid-row: 2/3;
-      /* visibility: hidden; */
-    }
-    #avatar-in-box img {
+      visibility: hidden;
+  }
+  #avatar-in-box img {
       height: 1px;
       width: 1px;
       visibility: hidden;
-    }
+  }
 }
+
+/* ===========> MOBILE CONFIG ===========> */
 @media (max-width: 895px) {
     .login-layer {
       width: 75vw;
@@ -345,15 +352,28 @@ button {
     height: 1px;
     width: 1px;
     visibility: hidden;
+    opacity: 0;
   }
   .user-platform.active {
     display: grid;
     grid-template-columns: 5vw 90vw 5vw;
-    /* grid-template-rows: 10vh 80vh 10vh; */
-    /* justify-content: center; */}
-    #imagePerfil > img {
+    background: var(--color-blue);
+  }
+  .user-login {
+    justify-content: center;
+    grid-template-columns: 1fr;
+    max-height: none; /*REMOVER ALTURA MÁXIMA*/
+  }
+  .user-perfil {
+    grid-column: 2/3;
+  }
+  .image-information img {
+    visibility: hidden;
+    opacity: 0;
+    height: 1px;
+    width: 1px;
+  }
+  #imagePerfil > img {
       max-height: 10vh;
-      /* border: var(--color-blue) solid .3rem; */
-      /* border-radius: 6rem; */
-    }
+  }
 }

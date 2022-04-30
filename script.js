@@ -1,12 +1,12 @@
 // Outra forma, só que maior de remover a imagem avatar-in-box
-  /*
-  if (document.body.clientWidth < 1220) {
-    var removeImg = document.getElementById('avatar-in-box');
+
+  if (document.body.clientWidth < 895) {
+    var removeImg = document.querySelector('.image-information');
     removeImg.remove();
+  }
 
     // var imgAvatarVespa = document.getElementById('avatar-in-box');
       // imgAvatarVespa.parentNode.removeChild(imgAvatarVespa);
-  } */
 
   //Adicionar um evento de "Keypress", pressionar botão
   document.addEventListener("keypress", function(e) {
@@ -188,10 +188,7 @@ function entrar() {
           <td>${clients[0].comments}</td>
           </tr>`
     }
-    function fechar() {
-      document.querySelector('.modal-overlay.active').classList.remove('active')
-    }
-    console.log('Ois')
+
     // var infoComanda = document.querySelector('#infoComanda')
     // console.log(infoComanda)
 
@@ -214,5 +211,5 @@ function sair() {
   //devido o RELOAD acima, essa função que remove a class .ACTIVE já náo é mais necessária, mas tbm seria uma opção viável.
   //mas seria necessário o "esvaziamento" de algumas variáveis como imagePerfil e img,
   // e elas teriam que estar do lado de fora da function entrar() para serem acessadas aqui.
-  document.querySelector('.user-platform.active').classList.remove('active')
+  // document.querySelector('.user-platform.active').classList.remove('active')
 }
