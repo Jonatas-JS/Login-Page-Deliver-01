@@ -169,7 +169,7 @@ function entrar() {
           </tr>
           <tr>
           <th scope="row">Troco</th>
-          <td>${clients[0].chang}</td>
+          <td>${clients[0].change}</td>
           </tr>
           <tr>
           <th scope="row">Pedido</th>
@@ -187,7 +187,11 @@ function entrar() {
           <th scope="row">Obs.:</th>
           <td>${clients[0].comments}</td>
           </tr>`
-    } 
+    }
+    function fechar() {
+      document.querySelector('.modal-overlay.active').classList.remove('active')
+    }
+    console.log('Ois')
     // var infoComanda = document.querySelector('#infoComanda')
     // console.log(infoComanda)
 
@@ -205,7 +209,7 @@ function sair() {
   var reloadPage = document.querySelector('.user-platform.active')
   reloadPage.addEventListener('click', function() {
   // quando apertar o X vai acionar a ação CLICK(que ele está "escutando" e abrir uma função sem nome).
-    location.reload(); //localmente fassa um RELOAD da página.
+    location.reload(); //localmente faça um RELOAD da página.
 })
   //devido o RELOAD acima, essa função que remove a class .ACTIVE já náo é mais necessária, mas tbm seria uma opção viável.
   //mas seria necessário o "esvaziamento" de algumas variáveis como imagePerfil e img,
