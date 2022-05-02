@@ -1,7 +1,7 @@
 // Outra forma, só que maior de remover a imagem avatar-in-box
 
   if (document.body.clientWidth < 895) {
-    var removeImg = document.querySelector('.image-information');
+    let removeImg = document.querySelector('.image-information');
     removeImg.remove();
   }
 
@@ -11,18 +11,18 @@
   //Adicionar um evento de "Keypress", pressionar botão
   document.addEventListener("keypress", function(e) {
     if (e.key === 'Enter') {
-      var btn = document.querySelector('#submit')
+      let btn = document.querySelector('#submit')
       btn.click() //pegua o ID(o botão que tem o onclick) e dá a caracteristica de click.
     }
   })
 function entrar() {
-  var email = document.getElementById('email').value.toLowerCase()
-  var password = document.getElementById('password').value
+  let email = document.getElementById('email').value.toLowerCase()
+  let password = document.getElementById('password').value
 
-  var emailCad = ['jonatas.silva@delivery.com', 'selton.silva@delivery.com', 'juliana.marques@delivery.com']
-  var senhaCad = ['123456', '654321', '92513987']
+  let emailCad = ['jonatas.silva@delivery.com', 'selton.silva@delivery.com', 'juliana.marques@delivery.com']
+  let senhaCad = ['123456', '654321', '92513987']
 
-  var senhaPosition = senhaCad.indexOf(password)
+  let senhaPosition = senhaCad.indexOf(password)
   
   if (emailCad.includes(email) && password == senhaCad[emailCad.indexOf(email)]) {
   //vai olhar dentro(INCLUDES()) da Array se tem o e-mail digitado.
@@ -30,7 +30,7 @@ function entrar() {
   //por fim, vai comparar se o a senha digitada está vinculada a posição na Array do e-mail digitado.
 
     document.querySelector('.user-platform').classList.add('active') //peguei a class="modal-overlay" e adicionei a ela a class="active"
-    var userCad = [//cadastro com as informações dos usuários em objetos.
+    let userCad = [//cadastro com as informações dos usuários em objetos.
       {
         img: 'https://avatars.githubusercontent.com/u/69220608?v=4',
         nome: 'Jônatas Fernandes',
@@ -51,8 +51,8 @@ function entrar() {
       }
     ]
     //Criando as informações de perfil com JS
-    var imagePerfil = document.getElementById('imagePerfil') //vai pegar o HTML inteiro
-    var img = document.createElement('img') //vai criar um elemento do tipo IMG
+    let imagePerfil = document.getElementById('imagePerfil') //vai pegar o HTML inteiro
+    let img = document.createElement('img') //vai criar um elemento do tipo IMG
     img.setAttribute('src', `${userCad[emailCad.indexOf(email)].img}`) //vai dar atributo SRC ao elemento IMG criado.
     imagePerfil.appendChild(img) //criar um filho, esse filho vai ser tudo que foi criado anteriormente no IMG.
     
@@ -61,9 +61,9 @@ function entrar() {
     document.getElementById('streetUser').innerHTML = `${userCad[emailCad.indexOf(email)].endereco}`
 
     //Criando as entregas do usuário
-    var tbody = document.getElementById('entregas')
-    var clientId = 0
-    var clients = [
+    let tbody = document.getElementById('entregas')
+    let clientId = 0
+    let clients = [ //pedidos
       {
         name: 'Juliana Marques',
         address: 'Rua Lino Machado',
@@ -135,7 +135,7 @@ function entrar() {
         comments: ''
       }
     ]
-      while (clientId <= clients.length) {
+      while (clientId < clients.length) {
       //enquanto o ID do cliente for menor que a quantidade de obsjetos no Array faça...      
         tbody.innerHTML += `
           <tr>
@@ -144,49 +144,62 @@ function entrar() {
             <td>${clients[clientId].address}</td>
             <td>${clients[clientId].cash}</td>
             <td>${clients[clientId].change}</td>
+            <td><a href="#" id="abrirDetalhes" ><img src="/assets/circle-info-solid.svg" alt="abrir detalhes"></a></td>
           </tr>`
           clientId++
+    }
+    console.log('Oi')
+    console.log('Saiu do While. Parabens!!')
 
-          document.getElementById('nComanda').innerHTML = `Comanda #${clientId}`
+    document.getElementById('abrirDetalhes').addEventListener('click', abrirDetalhes)
+    function abrirDetalhes() {
+    document.querySelector('.modal-overlay').classList.add('active')
+    document.getElementById('nComanda').innerHTML = `Comanda #${clients[0]}`
     //aqui vai outra estrutura de como mantar uma table com th vertical
     //no HTML só vai precisar do <table> e <tboty> dentro cada <tr> vai um <th> e <td>
-          document.getElementById('infoComanda').innerHTML = `
-          <tr>
-          <th scope="row">Id</th>
-          <td>${clientId}</td>
-          </tr>
-          <tr>
-          <th scope="row">Nome</th>
-          <td>${clients[0].name}</td>
-          </tr>
-          <tr>
-          <th scope="row">Endereço</th>
-          <td>${clients[0].address}</td>
-          </tr>
-          <tr>
-          <th scope="row">Valor</th>
-          <td>${clients[0].cash}</td>
-          </tr>
-          <tr>
-          <th scope="row">Troco</th>
-          <td>${clients[0].change}</td>
-          </tr>
-          <tr>
-          <th scope="row">Pedido</th>
-          <td>${clients[0].order}</td>
-          </tr>
-          <tr>
-          <th scope="row">Data</th>
-          <td>${clients[0].dateOrder}</td>
-          </tr>
-          <tr>
-          <th scope="row">Hora</th>
-          <td>${clients[0].hourOrder}hr</td>
-          </tr>
-          <tr>
-          <th scope="row">Obs.:</th>
-          <td>${clients[0].comments}</td>
-          </tr>`
+    document.getElementById('infoComanda').innerHTML = `
+    <tr>
+    <th scope="row">Id</th>
+    <td>${clientId}</td>
+    </tr>
+    <tr>
+    <th scope="row">Nome</th>
+    <td>${clients[0].name}</td>
+    </tr>
+    <tr>
+    <th scope="row">Endereço</th>
+    <td>${clients[0].address}</td>
+    </tr>
+    <tr>
+    <th scope="row">Valor</th>
+    <td>${clients[0].cash}</td>
+    </tr>
+    <tr>
+    <th scope="row">Troco</th>
+    <td>${clients[0].change}</td>
+    </tr>
+    <tr>
+    <th scope="row">Pedido</th>
+    <td>${clients[0].order}</td>
+    </tr>
+    <tr>
+    <th scope="row">Data</th>
+    <td>${clients[0].dateOrder}</td>
+    </tr>
+    <tr>
+    <th scope="row">Hora</th>
+    <td>${clients[0].hourOrder}hr</td>
+    </tr>
+    <tr>
+    <th scope="row">Obs.:</th>
+    <td>${clients[0].comments}</td>
+    </tr>`
+
+    document.getElementById('fechar-modal').addEventListener('click', fechar)
+    function fechar() {
+      // document.querySelector('.modal-overlay.active').classList.remove('active')
+      console.log(document.getElementById('.modal-overlay.active'))
+    }
     }
 
     // var infoComanda = document.querySelector('#infoComanda')
@@ -203,7 +216,7 @@ function entrar() {
   }
 }
 function sair() {
-  var reloadPage = document.querySelector('.user-platform.active')
+  let reloadPage = document.querySelector('.user-platform.active')
   reloadPage.addEventListener('click', function() {
   // quando apertar o X vai acionar a ação CLICK(que ele está "escutando" e abrir uma função sem nome).
     location.reload(); //localmente faça um RELOAD da página.
