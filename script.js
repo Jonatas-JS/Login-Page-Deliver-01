@@ -65,6 +65,7 @@ function entrar() {
     let clientId = 0
     let clients = [ //pedidos
       {
+        id: '1',
         name: 'Juliana Marques',
         address: 'Rua Lino Machado',
         cash: 'R$ 17,00',
@@ -75,6 +76,7 @@ function entrar() {
         comments: 'Buzinar para que eu desça.'
       },
       {
+        id: '2',
         name: 'Isaac Fernandes',
         address: 'Av. Geraldo Bizarria',
         cash: 'R$ 17,50',
@@ -85,6 +87,7 @@ function entrar() {
         comments: ''
       },
       {
+        id: '3',
         name: 'Gabriel Monteiro',
         address: 'Rua Eduardo Campos',
         cash: 'R$ 22,00',
@@ -95,6 +98,7 @@ function entrar() {
         comments: ''
       },
       {
+        id: '4',
         name: 'Israel Barros',
         address: 'Av. 25 de Março',
         cash: 'R$ 21,00',
@@ -105,6 +109,7 @@ function entrar() {
         comments: ''
       },
       {
+        id: '5',
         name: 'Ana Vitória',
         address: 'Rua Miguel Firmino',
         cash: 'R$ 11,00',
@@ -115,6 +120,7 @@ function entrar() {
         comments: ''
       },
       {
+        id: '6',
         name: 'Débora Talita',
         address: 'Rua Miguel Felipe',
         cash: 'R$ 22,00',
@@ -125,6 +131,7 @@ function entrar() {
         comments: 'Avisar quando estiver vindo, meu filho está dormindo.'
       },
       {
+        id: '7',
         name: 'Ronier Batista',
         address: 'Rua Terezinha Franco de Sousa',
         cash: 'R$ 33,00',
@@ -144,17 +151,14 @@ function entrar() {
             <td>${clients[clientId].address}</td>
             <td>${clients[clientId].cash}</td>
             <td>${clients[clientId].change}</td>
-            <td><a href="#" id="abrirDetalhes" ><img src="/assets/circle-info-solid.svg" alt="abrir detalhes"></a></td>
+            <td><a href="#" class="abrirDetalhes"><img src="/assets/circle-info-solid.svg" alt="abrir detalhes"></a></td>
           </tr>`
           clientId++
     }
-    console.log('Oi')
-    console.log('Saiu do While. Parabens!!')
-
-    document.getElementById('abrirDetalhes').addEventListener('click', abrirDetalhes)
+    document.querySelector('.abrirDetalhes').addEventListener('click', abrirDetalhes)
     function abrirDetalhes() {
     document.querySelector('.modal-overlay').classList.add('active')
-    document.getElementById('nComanda').innerHTML = `Comanda #${clients[0]}`
+    document.getElementById('nComanda').innerHTML = `Comanda #${clientId}`
     //aqui vai outra estrutura de como mantar uma table com th vertical
     //no HTML só vai precisar do <table> e <tboty> dentro cada <tr> vai um <th> e <td>
     document.getElementById('infoComanda').innerHTML = `
@@ -195,15 +199,11 @@ function entrar() {
     <td>${clients[0].comments}</td>
     </tr>`
 
-    document.getElementById('fechar-modal').addEventListener('click', fechar)
+    document.querySelector('#fechar-modal').addEventListener('click', fechar)
     function fechar() {
-      // document.querySelector('.modal-overlay.active').classList.remove('active')
-      console.log(document.getElementById('.modal-overlay.active'))
+      document.querySelector('.modal-overlay.active').classList.remove('active')
     }
     }
-
-    // var infoComanda = document.querySelector('#infoComanda')
-    // console.log(infoComanda)
 
   } else if (emailCad.includes(email) == false) {
     //como o INCLUDES só retorna TRUE ou FALSE, se a resposta for == FALSE então...
