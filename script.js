@@ -1,10 +1,3 @@
-// Outra forma, só que maior de remover a imagem avatar-in-box
-
-  if (document.body.clientWidth < 895) {
-    let removeImg = document.querySelector('.image-information');
-    removeImg.remove();
-  }
-
     // var imgAvatarVespa = document.getElementById('avatar-in-box');
       // imgAvatarVespa.parentNode.removeChild(imgAvatarVespa);
 
@@ -15,6 +8,15 @@
       btn.click() //pegua o ID(o botão que tem o onclick) e dá a caracteristica de click.
     }
   })
+  // Outra forma, só que maior de remover a imagem avatar-in-box
+
+  if (document.body.clientWidth < 895) {
+    let removeImg = document.querySelector('.image-information')
+    removeImg.remove()
+  } else if (document.body.clientWidth > 895) {
+    removeImg.add()
+  }
+  
 function entrar() {
   let email = document.getElementById('email').value.toLowerCase()
   let password = document.getElementById('password').value
@@ -151,24 +153,19 @@ function entrar() {
             <td>${pedidos[clientId].address}</td>
             <td>${pedidos[clientId].cash}</td>
             <td>${pedidos[clientId].change}</td>
-            <td><a href="#" class="abrirDetalhes" data-id="${clientId}"><img src="/assets/circle-info-solid.svg" alt="abrir detalhes"></a></td>
+            <td><a href="#" class="abrirDetalhes"><img src="/assets/circle-info-solid.svg" alt="abrir detalhes"></a></td>
           </tr>`
           clientId++
     }
     let detalhes = document.querySelectorAll('.abrirDetalhes')
     for (let i = 0; i < detalhes.length; i++) {
       detalhes[i].addEventListener("click", function (e) {
-        const dataId = Number(document.querySelector('.abrirDetalhes').getAttribute('data-id'))
         let item = pedidos[i]
         document.querySelector('.modal-overlay').classList.add('active')
         document.getElementById('nComanda').innerHTML = `Comanda #${item.id}`
         //aqui vai outra estrutura de como mantar uma table com th vertical
         //no HTML só vai precisar do <table> e <tboty> dentro cada <tr> vai um <th> e <td>
         document.getElementById('infoComanda').innerHTML = `
-        <tr>
-        <th scope="row">Id</th>
-        <td>${item.id}</td>
-        </tr>
         <tr>
         <th scope="row">Nome</th>
         <td>${item.name}</td>
