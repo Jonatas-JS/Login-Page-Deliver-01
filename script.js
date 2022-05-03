@@ -63,7 +63,7 @@ function entrar() {
     //Criando as entregas do usuário
     let tbody = document.getElementById('entregas')
     let clientId = 0
-    let clients = [ //pedidos
+    let pedidos = [ //pedidos
       {
         id: '1',
         name: 'Juliana Marques',
@@ -142,67 +142,75 @@ function entrar() {
         comments: ''
       }
     ]
-      while (clientId < clients.length) {
+    while (clientId < pedidos.length) {
       //enquanto o ID do cliente for menor que a quantidade de obsjetos no Array faça...      
         tbody.innerHTML += `
           <tr>
-            <td>${clientId+1}</td>
-            <td>${clients[clientId].name}</td>
-            <td>${clients[clientId].address}</td>
-            <td>${clients[clientId].cash}</td>
-            <td>${clients[clientId].change}</td>
-            <td><a href="#" class="abrirDetalhes"><img src="/assets/circle-info-solid.svg" alt="abrir detalhes"></a></td>
+            <td>${pedidos[clientId].id}</td>
+            <td>${pedidos[clientId].name}</td>
+            <td>${pedidos[clientId].address}</td>
+            <td>${pedidos[clientId].cash}</td>
+            <td>${pedidos[clientId].change}</td>
+            <td><a href="#" class="abrirDetalhes" data-id="${clientId}"><img src="/assets/circle-info-solid.svg" alt="abrir detalhes"></a></td>
           </tr>`
           clientId++
     }
-    document.querySelector('.abrirDetalhes').addEventListener('click', abrirDetalhes)
-    function abrirDetalhes() {
-    document.querySelector('.modal-overlay').classList.add('active')
-    document.getElementById('nComanda').innerHTML = `Comanda #${clientId}`
-    //aqui vai outra estrutura de como mantar uma table com th vertical
-    //no HTML só vai precisar do <table> e <tboty> dentro cada <tr> vai um <th> e <td>
-    document.getElementById('infoComanda').innerHTML = `
-    <tr>
-    <th scope="row">Id</th>
-    <td>${clientId}</td>
-    </tr>
-    <tr>
-    <th scope="row">Nome</th>
-    <td>${clients[0].name}</td>
-    </tr>
-    <tr>
-    <th scope="row">Endereço</th>
-    <td>${clients[0].address}</td>
-    </tr>
-    <tr>
-    <th scope="row">Valor</th>
-    <td>${clients[0].cash}</td>
-    </tr>
-    <tr>
-    <th scope="row">Troco</th>
-    <td>${clients[0].change}</td>
-    </tr>
-    <tr>
-    <th scope="row">Pedido</th>
-    <td>${clients[0].order}</td>
-    </tr>
-    <tr>
-    <th scope="row">Data</th>
-    <td>${clients[0].dateOrder}</td>
-    </tr>
-    <tr>
-    <th scope="row">Hora</th>
-    <td>${clients[0].hourOrder}hr</td>
-    </tr>
-    <tr>
-    <th scope="row">Obs.:</th>
-    <td>${clients[0].comments}</td>
-    </tr>`
-
-    document.querySelector('#fechar-modal').addEventListener('click', fechar)
-    function fechar() {
-      document.querySelector('.modal-overlay.active').classList.remove('active')
+    let detalhes = document.querySelectorAll('.abrirDetalhes')
+    for (let i = 0; i < detalhes.length; i++) {
+      detalhes[i].addEventListener("click", function (e) {
+        const dataId = Number(document.querySelector('.abrirDetalhes').getAttribute('data-id'))
+        let item = pedidos[i]
+        document.querySelector('.modal-overlay').classList.add('active')
+        document.getElementById('nComanda').innerHTML = `Comanda #${item.id}`
+        //aqui vai outra estrutura de como mantar uma table com th vertical
+        //no HTML só vai precisar do <table> e <tboty> dentro cada <tr> vai um <th> e <td>
+        document.getElementById('infoComanda').innerHTML = `
+        <tr>
+        <th scope="row">Id</th>
+        <td>${item.id}</td>
+        </tr>
+        <tr>
+        <th scope="row">Nome</th>
+        <td>${item.name}</td>
+        </tr>
+        <tr>
+        <th scope="row">Endereço</th>
+        <td>${item.address}</td>
+        </tr>
+        <tr>
+        <th scope="row">Valor</th>
+        <td>${item.cash}</td>
+        </tr>
+        <tr>
+        <th scope="row">Troco</th>
+        <td>${item.change}</td>
+        </tr>
+        <tr>
+        <th scope="row">Pedido</th>
+        <td>${item.order}</td>
+        </tr>
+        <tr>
+        <th scope="row">Data</th>
+        <td>${item.dateOrder}</td>
+        </tr>
+        <tr>
+        <th scope="row">Hora</th>
+        <td>${item.hourOrder}hr</td>
+        </tr>
+        <tr>
+        <th scope="row">Obs.:</th>
+        <td>${item.comments}</td>
+        </tr>`
+    
+        document.querySelector('#fechar-modal').addEventListener('click', fechar)
+        function fechar() {
+          document.querySelector('.modal-overlay.active').classList.remove('active')
+        }
+      })
     }
+
+    function abrirDetalhes() {
+
     }
 
   } else if (emailCad.includes(email) == false) {
