@@ -21,8 +21,8 @@ function entrar() {
   let email = document.getElementById('email').value.toLowerCase()
   let password = document.getElementById('password').value
 
-  let emailCad = ['jonatas.silva@delivery.com', 'selton.silva@delivery.com', 'juliana.marques@delivery.com']
-  let senhaCad = ['123456', '654321', '92513987']
+  let emailCad = ['user01@delivery.com', 'user02@delivery.com', 'user03@delivery.com']
+  let senhaCad = ['123456', '654321', '012345']
 
   let senhaPosition = senhaCad.indexOf(password)
   
@@ -34,15 +34,15 @@ function entrar() {
     document.querySelector('.user-platform').classList.add('active') //peguei a class="modal-overlay" e adicionei a ela a class="active"
     let userCad = [//cadastro com as informações dos usuários em objetos.
       {
-        img: 'https://avatars.githubusercontent.com/u/69220608?v=4',
+        img: 'https://images.pexels.com/photos/11650772/pexels-photo-11650772.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         nome: 'Jônatas Fernandes',
         idade: '23 anos',
-        endereco: 'Rua Lino Machado, 32, Vila Betânia'
+        endereco: 'Rua Antônio Saraiva, 1001, '
       },
       {
-        img: 'https://avatars.githubusercontent.com/u/44243944?v=4',
-        nome: 'Selton Kaway',
-        idade: '25 anos',
+        img: 'https://images.pexels.com/photos/4355346/pexels-photo-4355346.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        nome: 'Ana Gabriela',
+        idade: '27 anos',
         endereco: 'Rua José Campos Torquato, 09, Vila Betânia'
       },
       {
