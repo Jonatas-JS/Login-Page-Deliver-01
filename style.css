@@ -201,6 +201,10 @@ button {
 .top-sid {
   text-align: center;
 }
+#data-table {
+  border-spacing: 1rem .12rem;
+}
+
 a h3 {
   position: absolute;
   right: 17vw;

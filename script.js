@@ -11,9 +11,15 @@
 function entrar() {
   var email = document.getElementById('email').value
   var senha = document.getElementById('senha').value
-  var eMails = ['jonatas.silva@delivery.com', 'selton.silva@delivery.com', 'jefferson.mike@delivery.com', 'eudalio.silva@delivery.com']
+  console.log(senha)
+  var eMails = [
+    'jonatas.silva@delivery.com', 
+    'selton.silva@delivery.com', 
+    'jefferson.mike@delivery.com', 
+    'eudalio.silva@delivery.com'
+  ]
   
-  if (eMails.includes(email)) { //Validação do e-mail
+  if (eMails.includes(email) != true) { //Validação do e-mail
     alert('[ERRO] e-mail inexistente')
   } else if(senha != '123456') {
     alert('[ERRO] senha inválida')
